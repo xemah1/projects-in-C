@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main(){
+	srand(time(0));
+	int soul=0,five_times=0,times_what;long long int cash=rand()%50; cash=cash+1;
+	printf("GODS HAVE GIVEN YOU %lli GOLDS\n",cash);
+start:
+	five_times=0;
+	printf("HOW MANY TIMES WILL YOU ROLL? CHOOSE WISELY. ");scanf("%d",&times_what);printf("\n");
+	while(five_times<times_what){
+	int rand_num=rand()%100,decider=rand()%5;if(decider>1){rand_num=rand_num*(-1);};cash=cash+rand_num;
+	if(cash<=(-110)){printf("YOU ARE %lli GOLDS IN DEBT.\nNOT CHOSEN SO WISELY.\nGODS ARE DISAPPOINTED.",cash*(-1));break;};
+	five_times=five_times+1;
+	}
+	int small_chance=rand()%150,sponsor=rand()%20,gods=rand()%5;
+	if(cash<=-110)goto end;
+	if(sponsor<=1)sponsor=sponsor+2;
+	if(small_chance>145){printf("A FEW GODS HAVE NOTICED YOUR EFFORTS AND SPONSORED %d GOLDS\n",sponsor*gods);cash=cash+sponsor*gods;}
+	if(small_chance<10){printf("A GOD HAS NOTICED YOUR EFFORTS AND SPONSORED %d GOLDS\n",sponsor);cash=cash+sponsor;}
+	if(cash==1){
+		printf("AFTER %d ROLLS YOU HAVE ONLY 1 GOLD LEFT\n",times_what);goto start;
+	}
+	if(cash<0){
+		printf("YOU ARE %lli GOLDS IN DEBT.\nGODS ARE DISAPPOINTED.",cash*(-1));goto end;
+	}
+	printf("AFTER %d ROLLS YOU HAVE %lli GOLDS\n",times_what,cash);
+	if(cash>=100){
+		printf("YOU EXCHANGED 100 GOLDS FOR A HUMAN SOUL. YOU HAVE %d SOULS IN YOUR POSSESSION.\n",soul+1);cash=cash-100;soul=soul+1;
+	}
+	if(soul>=10){
+		printf("\n\n\nA GOD HAS RISEN FROM A MERE HUMAN. THY LIFE SHALL BE ETERNAL.");goto ende;
+	}
+	goto start;
+	
+	
+	
+	
+
+end:
+	if(soul>0){
+		soul=soul-1;printf("YOU SOLD A SOUL FOR GOLD. WHAT A SHAME.");goto start;
+	}
+	ende:
+	return 0;
+}
