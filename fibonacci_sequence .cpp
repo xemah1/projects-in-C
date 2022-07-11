@@ -8,10 +8,10 @@ int fibonacci(unsigned long long int x){
 
 int fibonacci1(int x){
 	int f[4];
-	unsigned long long int a=0;	unsigned long long int b=1;	unsigned long long int c;	int i;		//i've used long long int because 
-																									//where recursive starts to take too long
-																									// int starts to limit the number forthis method
-	for(i=0;i<x-1;i++){																				//and unsigned because we are not working with negative numbers
+	unsigned long long int a=0;	unsigned long long int b=1;	unsigned long long int c;	int i;	//i've used long long int because 
+														//where recursive starts to take too long
+														// int starts to limit the number forthis method
+	for(i=0;i<x-1;i++){											//and unsigned because we are not working with negative numbers
 		c=b+a;
 		a=b;
 		b=c;
